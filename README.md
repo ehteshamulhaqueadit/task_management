@@ -6,6 +6,8 @@ A comprehensive web-based task management platform designed to streamline person
 
 🚀 **Live Demo:** [https://taskmaster.byethost11.com](https://taskmaster.byethost11.com)
 
+📚 **Course Project:** CSE370 - Database Systems
+
 ---
 
 ## 📋 Table of Contents
@@ -575,7 +577,7 @@ Contributions are welcome! Please follow these guidelines:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project was developed as a CSE370 Database Systems course project and is available for educational purposes.
 
 ---
 
@@ -583,13 +585,15 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Ehteshamul Haque Adit**
 
-- GitHub: [@ehteshamulhaqueadit](https://github.com/ehteshamulhaqueadit)
-- Live Demo: [https://taskmaster.byethost11.com](https://taskmaster.byethost11.com)
+- **Course:** CSE370 - Database Systems
+- **GitHub:** [@ehteshamulhaqueadit](https://github.com/ehteshamulhaqueadit)
+- **Live Demo:** [https://taskmaster.byethost11.com](https://taskmaster.byethost11.com)
 
 ---
 
 ## 🙏 Acknowledgments
 
+- **CSE370 - Database Systems** course for project guidance and learning opportunity
 - PHP and MySQL communities for excellent documentation
 - Bootstrap and modern CSS techniques for responsive design inspiration
 - Security best practices from OWASP guidelines
