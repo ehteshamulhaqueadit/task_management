@@ -662,28 +662,51 @@ This project was developed as a CSE370 Database Systems course project and is av
 
 <sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
 
-## Support
+## Quickstart
 
-For issues, questions, or suggestions:
+Choose one of the following:
 
-- Open an issue on GitHub
-- Submit a report through the application's report feature (if you have admin access)
+### Option A — Demo (no database)
+
+This is useful to preview the UI without login/register.
+
+```bash
+git clone https://github.com/ehteshamulhaqueadit/task_management.git
+cd task_management
+
+# Start PHP built-in server
+php -S localhost:8000
+
+# Open the landing page
+# http://localhost:8000/welcome.html
+```
+
+Limitations:
+
+- Authentication, tasks, groups, and reports will not function without the database.
+
+### Option B — Full setup (with MySQL)
+
+Follow Installation steps to create the database and import schema, then run:
+
+```bash
+git clone https://github.com/ehteshamulhaqueadit/task_management.git
+cd task_management
+php -S localhost:8000
+
+# Navigate to
+# http://localhost:8000/welcome.html
+```
+
+After registering, update a user to admin if needed:
+
+```sql
+UPDATE user SET type = 'admin' WHERE username = 'your_username';
+```
 
 ---
 
 <sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
-
-## Version History
-
-- **v1.0.0** (Current)
-  - Initial release
-  - Complete task management system
-  - Group collaboration features
-  - Admin panel implementation
-  - Report submission system
-  - Comprehensive security measures
-
----
 
 <sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
 
