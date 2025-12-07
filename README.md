@@ -136,8 +136,6 @@ A comprehensive web-based task management platform designed to streamline person
 
 ![Welcome / Banner](https://i.postimg.cc/Z53gpQhD/Screenshot-2025-05-14-204748.png)
 
-> Tip: Add more UI screenshots here (Home, Tasks, Groups, Admin Reports) for a visual overview.
-
 ---
 
 <sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
