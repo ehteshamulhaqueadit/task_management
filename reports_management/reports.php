@@ -12,6 +12,15 @@ if ($user_data[0]) {
 }
 ?>
 
+<?php   
+
+if (user_type(conn: $conn, user_id: $user_id) == "admin") { 
+    header(header: "Location: ../admin/reports/reports.php");
+    exit();
+}                
+?>
+
+
 <?php
 // check if it is a post request
 if (isset($_POST["submit"])) {

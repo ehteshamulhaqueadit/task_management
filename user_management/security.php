@@ -550,50 +550,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
       </div>
 
-      <!-- Report to Admin Section -->
-      <div class="report-admin">
-        <h2 class="section-title">Report to Admin</h2>
-        <?php
-        // Display report errors if any
-        if (!empty($report_errors)) {
-            echo "<div style='color: red; margin-bottom: 10px; text-align: center;'>";
-            foreach ($report_errors as $error) {
-                echo "<p>$error</p>";
-            }
-            echo "</div>";
-        }
-        // Display report success message if any
-        if (!empty($report_success)) {
-            echo "<div style='color: green; margin-bottom: 10px; text-align: center;'>";
-            foreach ($report_success as $success) {
-                echo "<p>$success</p>";
-            }
-            echo "</div>";
-        }
-        ?>
-        <form action="./security.php" method="POST" enctype="multipart/form-data">
-              <!-- Hidden input for form identification -->
-          <input type="hidden" name="form_id" value="report_to_admin">
-          <div class="form-group">
-            <label for="report_subject">Subject:</label>
-            <input type="text" id="report_subject" name="report_subject" required placeholder="Enter report subject (1 to 100 characters)">
-          </div>
-          
-          <div class="form-group">
-            <label for="report_details">Report Details:</label>
-            <textarea id="report_details" name="report_details" required placeholder="Describe your issue in detail (1 to 1000 characters)"></textarea>
-          </div>
-          
-          <div class="form-group">
-            <label for="report_file">Attach File (Optional):</label>
-            <input type="file" id="report_file" name="report_file">
-          </div>
-          <div style="justify-content: center; display: flex; gap: 16px;">
-            <button type="submit" class="submit-btn">Submit Report</button>
-            <button class="view-reports-btn" onclick="window.location.href='../reports_management/reports.php'">View Reports</button>
-          </div>
-        </form>
-      </div>
+
+
+      <?php   if (user_type(conn: $conn, user_id: $user_id) != "admin") { ?>
+
+        <!-- Report to Admin Section -->
+        <div class="report-admin">
+          <h2 class="section-title">Report to Admin</h2>
+          <?php
+          // Display report errors if any
+          if (!empty($report_errors)) {
+              echo "<div style='color: red; margin-bottom: 10px; text-align: center;'>";
+              foreach ($report_errors as $error) {
+                  echo "<p>$error</p>";
+              }
+              echo "</div>";
+          }
+          // Display report success message if any
+          if (!empty($report_success)) {
+              echo "<div style='color: green; margin-bottom: 10px; text-align: center;'>";
+              foreach ($report_success as $success) {
+                  echo "<p>$success</p>";
+              }
+              echo "</div>";
+          }
+          ?>
+          <form action="./security.php" method="POST" enctype="multipart/form-data">
+                <!-- Hidden input for form identification -->
+            <input type="hidden" name="form_id" value="report_to_admin">
+            <div class="form-group">
+              <label for="report_subject">Subject:</label>
+              <input type="text" id="report_subject" name="report_subject" required placeholder="Enter report subject (1 to 100 characters)">
+            </div>
+            
+            <div class="form-group">
+              <label for="report_details">Report Details:</label>
+              <textarea id="report_details" name="report_details" required placeholder="Describe your issue in detail (1 to 1000 characters)"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="report_file">Attach File (Optional):</label>
+              <input type="file" id="report_file" name="report_file">
+            </div>
+            <div style="justify-content: center; display: flex; gap: 16px;">
+              <button type="submit" class="submit-btn">Submit Report</button>
+              <button class="view-reports-btn" onclick="window.location.href='../reports_management/reports.php'">View Reports</button>
+            </div>
+          </form>
+        </div>
+
+      <?php } ?>
+    
     </div>
   </div>
   

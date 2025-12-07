@@ -1,7 +1,7 @@
 <?php
 
-include("../authentication/session_check.php");
-include("../db_connection.php");
+include("../authentication/session_check.php"); //import 
+include("../db_connection.php"); //import 
 $conn = db_connection(); // Establish database connection
 
 $user_data = get_user_existence_and_id(conn: $conn);

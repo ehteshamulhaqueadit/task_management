@@ -1,8 +1,12 @@
 <?php
-function db_connection(): mysqli{
 
+$servername = "localhost";  
+$username = "tm_admin";         
+
+function db_connection(): mysqli{
 $servername = "localhost";  // Server name (usually localhost for local development)
-$serverusername = "tm_admin";       // Your MySQL username
+$serverusername = "tm_admin";       
+
 $password = "tmadmin1234";            
 $dbname = "task_management"; 
 
