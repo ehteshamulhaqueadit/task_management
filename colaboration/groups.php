@@ -106,10 +106,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         $conn->begin_transaction();
 
         try {
-            // Step 1: Get the membership_id for the user and group
+            // Step 1: Get the membership_id and type for the user and group
             $get_membership = $conn->prepare("
-                SELECT j.membership_id
+                SELECT j.membership_id, m.type
                 FROM joined_group j
+                JOIN member m ON j.membership_id = m.membership_id
                 WHERE j.user_id = ? AND j.group_id = ?
             ");
             if (!$get_membership) throw new Exception("Error preparing membership select statement: " . $conn->error);
@@ -121,56 +122,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             if ($membership_result->num_rows === 0) {
                 // User is not a member or group doesn't exist for this user
                 $leave_error = "You are not a member of this group or cannot perform this action.";
-                $get_membership->close(); // Close statement
-                $conn->rollback(); // Rollback transaction
+                $get_membership->close();
+                $conn->rollback();
             } else {
                 $membership = $membership_result->fetch_assoc();
                 $membership_id = $membership['membership_id'];
-                $get_membership->close(); // Close statement
+                $membership_type = $membership['type'];
+                $get_membership->close();
 
-                // Step 2: Delete from joined_group table
-                $delete_joined = $conn->prepare("
-                    DELETE FROM joined_group
-                    WHERE user_id = ? AND group_id = ? AND membership_id = ?
-                ");
-                if (!$delete_joined) throw new Exception("Error preparing joined_group delete statement: " . $conn->error);
-                $delete_joined->bind_param("iii", $user_id, $group_id, $membership_id);
-                $delete_joined->execute();
-                $affected_joined = $delete_joined->affected_rows; // Check affected rows
-                $delete_joined->close();
-
-                // Step 3: Delete from created_group table (if the user was the creator)
-                // This assumes a user leaving also relinquishes creation status if they created it.
-                // Adjust logic if creation status should persist or be transferred.
-                $delete_created = $conn->prepare("
-                    DELETE FROM created_group
-                    WHERE user_id = ? AND group_id = ? AND membership_id = ?
-                ");
-                 if (!$delete_created) throw new Exception("Error preparing created_group delete statement: " . $conn->error);
-                $delete_created->bind_param("iii", $user_id, $group_id, $membership_id);
-                $delete_created->execute();
-                // No need to check affected rows here, as it might not exist
-                $delete_created->close();
-
-                // Step 4: Delete from member table
-                $delete_member = $conn->prepare("
-                    DELETE FROM member
-                    WHERE membership_id = ?
-                ");
-                if (!$delete_member) throw new Exception("Error preparing member delete statement: " . $conn->error);
-                $delete_member->bind_param("i", $membership_id);
-                $delete_member->execute();
-                $affected_member = $delete_member->affected_rows; // Check affected rows
-                $delete_member->close();
-
-                // Check if core records were deleted
-                if ($affected_joined > 0 && $affected_member > 0) {
-                    // Commit the transaction if all deletions were successful
-                    $conn->commit();
-                    $leave_success = "You have successfully left the group.";
+                // Prevent leaders from leaving (they must transfer leadership or delete group)
+                if ($membership_type === 'leader') {
+                    $leave_error = "As the group leader, you cannot leave. Transfer leadership or delete the group.";
+                    $conn->rollback();
                 } else {
-                     // If expected records weren't deleted, something is wrong
-                    throw new Exception("Failed to delete necessary membership records.");
+                    // Step 2: Delete from joined_group table
+                    $delete_joined = $conn->prepare("
+                        DELETE FROM joined_group
+                        WHERE user_id = ? AND group_id = ? AND membership_id = ?
+                    ");
+                    if (!$delete_joined) throw new Exception("Error preparing joined_group delete statement: " . $conn->error);
+                    $delete_joined->bind_param("iii", $user_id, $group_id, $membership_id);
+                    $delete_joined->execute();
+                    $affected_joined = $delete_joined->affected_rows;
+                    $delete_joined->close();
+
+                    // Step 3: Delete from member table
+                    $delete_member = $conn->prepare("
+                        DELETE FROM member
+                        WHERE membership_id = ?
+                    ");
+                    if (!$delete_member) throw new Exception("Error preparing member delete statement: " . $conn->error);
+                    $delete_member->bind_param("i", $membership_id);
+                    $delete_member->execute();
+                    $affected_member = $delete_member->affected_rows;
+                    $delete_member->close();
+
+                    // Check if records were deleted
+                    if ($affected_joined > 0 && $affected_member > 0) {
+                        $conn->commit();
+                        $leave_success = "You have successfully left the group.";
+                    } else {
+                        throw new Exception("Failed to delete membership record.");
+                    }
                 }
             }
         } catch (Exception $e) {
