@@ -1,5 +1,9 @@
 # TaskMaster - Task Management System
 
+![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-777BB4?logo=php&logoColor=white)
+![MySQL Version](https://img.shields.io/badge/MySQL-5.7%2B-4479A1?logo=mysql&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active-success)
+
 ![TaskMaster Banner](https://i.postimg.cc/Z53gpQhD/Screenshot-2025-05-14-204748.png)
 
 A comprehensive web-based task management platform designed to streamline personal productivity, team collaboration, and administrative oversight. TaskMaster provides an intuitive interface for managing tasks, collaborating within groups, submitting reports, and administrative management.
@@ -124,6 +128,8 @@ A comprehensive web-based task management platform designed to streamline person
 
 ---
 
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
 ## Technology Stack
 
 ### Backend
@@ -147,6 +153,8 @@ A comprehensive web-based task management platform designed to streamline person
 - **Input Sanitization**: Data validation and cleaning
 
 ---
+
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
 
 ## Database Schema
 
@@ -245,6 +253,8 @@ A comprehensive web-based task management platform designed to streamline person
 
 ---
 
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
 ## Installation
 
 ### Prerequisites
@@ -340,6 +350,8 @@ A comprehensive web-based task management platform designed to streamline person
 
 ---
 
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
 ## Configuration
 
 ### Session Management
@@ -367,6 +379,8 @@ $records_per_page = 10; // Adjust as needed
 ```
 
 ---
+
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
 
 ## Usage
 
@@ -437,6 +451,8 @@ $records_per_page = 10; // Adjust as needed
 
 ---
 
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
 ## Security Features
 
 ### Password Security
@@ -475,6 +491,8 @@ $records_per_page = 10; // Adjust as needed
 - **Database Constraints**: Foreign key relationships prevent orphaned data
 
 ---
+
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
 
 ## Project Structure
 
@@ -543,6 +561,8 @@ task_management/
 
 ---
 
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
 ## Contributing
 
 Contributions are welcome! Please follow these guidelines:
@@ -581,7 +601,9 @@ This project was developed as a CSE370 Database Systems course project and is av
 
 ---
 
-## 👨‍💻 Author
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
+## Author
 
 **Ehteshamul Haque Adit**
 
@@ -591,7 +613,9 @@ This project was developed as a CSE370 Database Systems course project and is av
 
 ---
 
-## 🙏 Acknowledgments
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
+## Acknowledgments
 
 - **CSE370 - Database Systems** course for project guidance and learning opportunity
 - PHP and MySQL communities for excellent documentation
@@ -600,7 +624,9 @@ This project was developed as a CSE370 Database Systems course project and is av
 
 ---
 
-## 📞 Support
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
+## Support
 
 For issues, questions, or suggestions:
 
@@ -609,7 +635,9 @@ For issues, questions, or suggestions:
 
 ---
 
-## 🔄 Version History
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
+## Version History
 
 - **v1.0.0** (Current)
   - Initial release
@@ -621,7 +649,9 @@ For issues, questions, or suggestions:
 
 ---
 
-## 🚧 Future Enhancements
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
+## Future Enhancements
 
 Potential features for future versions:
 
