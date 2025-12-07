@@ -25,7 +25,7 @@ A comprehensive web-based task management platform designed to streamline person
 
 ---
 
-## ✨ Features
+## Features
 
 ### 🔐 Authentication & Authorization
 
@@ -124,7 +124,7 @@ A comprehensive web-based task management platform designed to streamline person
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend
 
@@ -148,7 +148,7 @@ A comprehensive web-based task management platform designed to streamline person
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### Core Tables
 
@@ -245,7 +245,7 @@ A comprehensive web-based task management platform designed to streamline person
 
 ---
 
-## 📥 Installation
+## Installation
 
 ### Prerequisites
 
@@ -340,7 +340,7 @@ A comprehensive web-based task management platform designed to streamline person
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### Session Management
 
@@ -368,7 +368,7 @@ $records_per_page = 10; // Adjust as needed
 
 ---
 
-## 🚀 Usage
+## Usage
 
 ### For Regular Users
 
@@ -437,7 +437,7 @@ $records_per_page = 10; // Adjust as needed
 
 ---
 
-## 🔒 Security Features
+## Security Features
 
 ### Password Security
 
@@ -476,7 +476,7 @@ $records_per_page = 10; // Adjust as needed
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 task_management/
@@ -543,7 +543,7 @@ task_management/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please follow these guidelines:
 
@@ -575,7 +575,7 @@ Contributions are welcome! Please follow these guidelines:
 
 ---
 
-## 📄 License
+## License
 
 This project was developed as a CSE370 Database Systems course project and is available for educational purposes.
 
