@@ -17,9 +17,11 @@ A comprehensive web-based task management platform designed to streamline person
 ## 📋 Table of Contents
 
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Technology Stack](#technology-stack)
 - [Database Schema](#database-schema)
 - [Installation](#installation)
+- [Quickstart](#quickstart)
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [Security Features](#security-features)
@@ -125,6 +127,16 @@ A comprehensive web-based task management platform designed to streamline person
   - Accept/reject report submissions
   - View report details and attachments
   - Status management workflow
+
+---
+
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
+## Screenshots
+
+![Welcome / Banner](https://i.postimg.cc/Z53gpQhD/Screenshot-2025-05-14-204748.png)
+
+> Tip: Add more UI screenshots here (Home, Tasks, Groups, Admin Reports) for a visual overview.
 
 ---
 
@@ -347,6 +359,30 @@ A comprehensive web-based task management platform designed to streamline person
    ```sql
    UPDATE user SET type = 'admin' WHERE username = 'your_username';
    ```
+
+---
+
+<sub><a href="#%F0%9F%93%8B-table-of-contents">Back to top</a></sub>
+
+## Quickstart
+
+The fastest way to run locally:
+
+```bash
+git clone https://github.com/ehteshamulhaqueadit/task_management.git
+cd task_management
+
+# Start PHP built-in server
+php -S localhost:8000
+
+# Visit
+# http://localhost:8000/welcome.html
+```
+
+Requirements:
+
+- PHP 7.4+ installed and in PATH
+- MySQL set up if you plan to login/register (see Installation)
 
 ---
 
